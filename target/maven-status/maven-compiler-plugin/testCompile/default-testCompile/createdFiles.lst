@@ -1,0 +1,8 @@
+testrunner\TestRunner.class
+base\DriverFactory.class
+stepdefinitions\LoginSteps.class
+master\Master.class
+utils\ConfigReader.class
+hooks\Hooks.class
+pages\Login.class
+utils\LocatorReader.class
