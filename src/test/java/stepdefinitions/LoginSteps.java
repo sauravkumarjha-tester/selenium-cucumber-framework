@@ -17,9 +17,9 @@ public class LoginSteps {
     }
 
     @When("^user enter (.*) and (.*)$")
-    public void user_enter_username_and_password(String username,String) throws Exception{
+    public void user_enter_username_and_password(String username,String password) throws Exception{
         
-        login.userEnterUsernameAndPassword();
+        login.userEnterUsernameAndPassword(username,password);
         System.out.println("Inside Steps:- user enter username and password");
     }
 
