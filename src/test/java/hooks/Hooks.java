@@ -4,6 +4,7 @@ import base.DriverFactory;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import utils.ConfigReader;
+import utils.SoftAssert;
 
 public class Hooks {
 
@@ -16,5 +17,6 @@ public class Hooks {
     @After
     public void tearDown() {
         DriverFactory.quitDriver();
+        SoftAssert.assertAll();
     }
 }

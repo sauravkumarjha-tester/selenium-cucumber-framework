@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 
 import base.DriverFactory;
 import master.Master;
+import utils.SoftAssert;
 
 public class Login {
 
@@ -16,23 +17,25 @@ public class Login {
  
     public void userEnterUsernameAndPassword(String username,String password) throws Exception {
         
-        // driver.findElement(By.id("user-name")).sendKeys("standard_user");
-        // driver.findElement(By.id("password")).sendKeys("secret_sauce");
         WebElement usernameField = master.findElement("username");
         usernameField.sendKeys(username);
+
         WebElement passwordField = master.findElement("password");
         passwordField.sendKeys(password);
     }
+
     public void clickOnLoginButton() throws Exception {
+        
         master.click("loginButton");
-        //driver.findElement(By.id("login-button")).click();
+        
     }
-    public void userIsNavigatedToTheHomePage() {
-        String expectedUrl = "https://www.saucedemo.com/inventory.html";
-        String actualUrl = driver.getCurrentUrl();
-        if (!actualUrl.equals(expectedUrl)) {
-            throw new AssertionError("User is not navigated to the home page. Expected: " + expectedUrl + ", but got: " + actualUrl);
-        }
+    public void userIsNavigatedToTheHomePage(String description,String actualValue,String expectedValue) throws Exception {
+        master.validateResult(description, actualValue, expectedValue);
+    }
+
+    public String getText(String locator) throws Exception {
+      return master.findElement(locator).getText();
+        //return element.getText();
     }
 
 }
